@@ -1,23 +1,23 @@
-baseurl = "https://nanx.me/hugo-renga/"
-title = "Hugo Renga Theme Demo"
-author = "Jane Doe"
+baseurl = "https://dhersz.netlify.app/"
+title = "Daniel Herszenhut"
+author = "Daniel Herszenhut"
 canonifyurls = true
 languagecode = "en"
 paginate = 3
 theme = "hugo-renga"
-
 enableEmoji = true
-hasCJKLanguage = true
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 # googleAnalytics = "UA-00000000-1"
 # disqusShortname = "your-disqus-shortname"
 
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+[permalinks]
+post = "/:year/:month/:day/:slug/"
 
 [params]
-pagetitle = "Jane Doe"
-copyright = "© 2018 Jane Doe"
-copyrightUrl = "https://nanx.me/hugo-renga/"
+pagetitle = "Daniel Herszenhut"
+copyright = "© 2020 Daniel Herszenhut"
+copyrightUrl = "https://dhersz.netlify.app/"
 faviconfile = "image/favicon.png"
 logofile = "image/avatar.png"
 posts_navigation = true
@@ -25,10 +25,9 @@ uselatex = true
 highlightjs = true
 progressively = false
 
-github = "nanxstats"
-twitter = "nanxstats"
-linkedin = "nanxstats"
-email = "example@example.com"
+github = "dhersz"
+twitter = "dhersz"
+email = "dhersz@gmail.com"
 
 [[menu.primary]]
 identifier = "about"
