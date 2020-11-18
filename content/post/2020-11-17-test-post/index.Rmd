@@ -1,0 +1,10 @@
+---
+title: Test post
+author: Daniel
+date: '2020-11-17'
+slug: test-post
+categories: []
+tags: []
+---
+
+This is a test post.
