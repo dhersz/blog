@@ -6,6 +6,8 @@ paginate = 3
 theme = "hugo-renga"
 enableEmoji = true
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+DefaultContentLanguage = "pt"
+defaultContentLanguageInSubdir = true
 
 # googleAnalytics = "UA-00000000-1"
 # disqusShortname = "your-disqus-shortname"
@@ -34,13 +36,13 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [[languages.en.menu.primary]]
   identifier = "about"
   name = "About"
-  url = "/about/"
+  url = "/en/about/"
   weight = 1
 
 [[languages.en.menu.primary]]
   identifier = "blog"
   name = "Blog"
-  url = "/blog/"
+  url = "/en/blog/"
   weight = 2
 
 [languages.pt]
