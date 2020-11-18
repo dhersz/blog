@@ -3,8 +3,8 @@ title: Test post
 author: Daniel
 date: '2020-11-17'
 slug: test-post
-categories: []
-tags: []
+categories: ["test"]
+tags: ["test"]
 ---
 
 This is a test post.
