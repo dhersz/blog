@@ -2,7 +2,6 @@ baseurl = "https://dhersz.netlify.app/"
 title = "Daniel Herszenhut"
 author = "Daniel Herszenhut"
 canonifyurls = true
-languagecode = "en"
 paginate = 3
 theme = "hugo-renga"
 enableEmoji = true
@@ -12,31 +11,50 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 # disqusShortname = "your-disqus-shortname"
 
 [permalinks]
-post = "/:year/:month/:day/:slug/"
+  post = "/:year/:month/:day/:slug/"
 
 [params]
-pagetitle = "Daniel Herszenhut"
-copyright = "© 2020 Daniel Herszenhut"
-copyrightUrl = "https://dhersz.netlify.app/"
-faviconfile = "image/favicon.png"
-logofile = "image/avatar.png"
-posts_navigation = true
-uselatex = true
-highlightjs = true
-progressively = false
+  pagetitle = "Daniel Herszenhut"
+  copyright = "© 2020 Daniel Herszenhut"
+  copyrightUrl = "https://dhersz.netlify.app/"
+  faviconfile = "image/favicon.png"
+  logofile = "image/avatar.png"
+  posts_navigation = true
+  uselatex = true
+  highlightjs = true
+  progressively = false
+  github = "dhersz"
+  twitter = "dhersz"
+  email = "dhersz@gmail.com"
 
-github = "dhersz"
-twitter = "dhersz"
-email = "dhersz@gmail.com"
+[languages.en]
+  languageCode = "en"
+  # languageName = "English"
 
-[[menu.primary]]
-identifier = "about"
-name = "About"
-url = "/about/"
-weight = 1
+[[languages.en.menu.primary]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 1
 
-[[menu.primary]]
-identifier = "blog"
-name = "Blog"
-url = "/blog/"
-weight = 2
+[[languages.en.menu.primary]]
+  identifier = "blog"
+  name = "Blog"
+  url = "/blog/"
+  weight = 2
+
+[languages.pt]
+  languageCode = "pt"
+  # languageName = "Português"
+
+[[languages.pt.menu.primary]]
+  identifier = "sobre"
+  name = "Sobre"
+  url = "/pt/about/"
+  weight = 1
+
+[[languages.pt.menu.primary]]
+  identifier = "blog"
+  name = "Blog"
+  url = "/pt/blog/"
+  weight = 2
