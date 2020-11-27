@@ -1,11 +1,11 @@
-baseurl = "https://dhersz.netlify.app/"
+# baseurl = "https://dhersz.netlify.app/"
 title = "Daniel Herszenhut"
 author = "Daniel Herszenhut"
 canonifyurls = true
 paginate = 3
 theme = "hugo-renga"
 enableEmoji = true
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 DefaultContentLanguage = "pt"
 defaultContentLanguageInSubdir = true
 
@@ -33,6 +33,7 @@ defaultContentLanguageInSubdir = true
 
 [languages.en]
   languageCode = "en"
+  baseurl = "https://dhersz.netlify.app/en/"
   # languageName = "English"
 
 [[languages.en.menu.primary]]
@@ -55,6 +56,7 @@ defaultContentLanguageInSubdir = true
 
 [languages.pt]
   languageCode = "pt"
+  baseurl = "https://dhersz.netlify.app/pt/"
   # languageName = "Português"
 
 [[languages.pt.menu.primary]]

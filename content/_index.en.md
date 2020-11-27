@@ -1,6 +1,6 @@
 ---
 menu: "main"
-description: "About me."
+description: "About me"
 ---
 
 Hi! I'm **Daniel Herszenhut**, MSc student in Transport Engineering at [PET/COPPE/UFRJ](http://pet.coppe.ufrj.br/index.php/pt/) and research assistant at [Access to Opportunities Project](https://www.ipea.gov.br/acessooportunidades/en/sobre/). I try to understand, with my research, how transport equity analysis are affected by incorporating the monetary costs of trips in accessibility measures.
