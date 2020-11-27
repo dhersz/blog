@@ -1,12 +1,10 @@
 ---
-title: "The Renga Theme for Hugo"
-date: "2018-11-09"
 menu: "main"
-description: "Website description."
+description: "About me."
 ---
 
-Lorem ipsum dolor sit amet, ex has sale ullum corrumpit, sea dicam nostrum sensibus ad. Porro tritani persecuti te sed. Omittam dissentias pro ex. Atqui luptatum duo id. Eros minim eam ex, novum elitr accusam quo in. Nec ne audire euripidis, [mea qualisque consetetur cu](https://nanx.me). Suspendisse volutpat sem a risus euismod convallis.
+Hi! I'm **Daniel Herszenhut**, MSc student in Transport Engineering at [PET/COPPE/UFRJ](http://pet.coppe.ufrj.br/index.php/pt/) and research assistant at [Access to Opportunities Project](https://www.ipea.gov.br/acessooportunidades/en/sobre/). I try to understand, with my research, how transport equity analysis are affected by incorporating the monetary costs of trips in accessibility measures.
 
-In modus congue feugait eos. In nec nonumy volutpat corrumpit, sea assentior quaerendum no, cum affert scripta ea. No nihil voluptaria pro. [Erat democritum mei no](https://nanx.me), homero quodsi aliquando id mel, ridens civibus molestiae et nam.
+My research interests mainly revolve around Urban Mobility, particularly Transport Justice. I believe data science should be used to expand the knowledge frontier and I take part in the development of [*R* packages]({{< ref "/projects.en" >}}) to make the life of those who work in these areas easier.
 
-Ea eam postea facilisi. Nullam forensibus consequuntur usu ea, no ius consul delectus periculis. Eam veri numquam an. Et partiendo gubergren eam. Quod iudicabit has ex, eam diam facilisi eu, elitr aliquip no eum.
+In my leisure time I like to practice outdoor activities and study/play music, especially percussion instruments.

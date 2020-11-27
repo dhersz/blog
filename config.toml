@@ -9,8 +9,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 DefaultContentLanguage = "pt"
 defaultContentLanguageInSubdir = true
 
-# googleAnalytics = "UA-00000000-1"
-# disqusShortname = "your-disqus-shortname"
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [permalinks]
   post = "/:year/:month/:day/:slug/"
@@ -20,7 +22,7 @@ defaultContentLanguageInSubdir = true
   copyright = "© 2020 Daniel Herszenhut"
   copyrightUrl = "https://dhersz.netlify.app/"
   faviconfile = "image/favicon.png"
-  logofile = "image/avatar.png"
+  logofile = "image/avatar.jpg"
   posts_navigation = true
   uselatex = true
   highlightjs = true
@@ -34,29 +36,41 @@ defaultContentLanguageInSubdir = true
   # languageName = "English"
 
 [[languages.en.menu.primary]]
-  identifier = "about"
-  name = "About"
-  url = "/en/about/"
-  weight = 1
-
-[[languages.en.menu.primary]]
   identifier = "blog"
   name = "Blog"
   url = "/en/blog/"
+  weight = 1
+
+[[languages.en.menu.primary]]
+  identifier = "projects"
+  name = "Projects"
+  url = "/en/projects/"
   weight = 2
+
+#[[languages.en.menu.primary]]
+#  identifier = "publications"
+#  name = "Publications"
+#  url = "/en/publications/"
+#  weight = 3
 
 [languages.pt]
   languageCode = "pt"
   # languageName = "Português"
 
 [[languages.pt.menu.primary]]
-  identifier = "sobre"
-  name = "Sobre"
-  url = "/pt/about/"
-  weight = 1
-
-[[languages.pt.menu.primary]]
   identifier = "blog"
   name = "Blog"
   url = "/pt/blog/"
+  weight = 1
+
+[[languages.pt.menu.primary]]
+  identifier = "projetos"
+  name = "Projetos"
+  url = "/pt/projects/"
   weight = 2
+
+#[[languages.pt.menu.primary]]
+#  identifier = "publicacoes"
+#  name = "Publicações"
+#  url = "/pt/publications/"
+#  weight = 3
