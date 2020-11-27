@@ -4,7 +4,7 @@ menu: "main"
 description: "Sobre mim."
 ---
 
-Olá! Sou o **Daniel Herszenhut**, mestrando em Engenharia de Transportes no [PET/COPPE/UFRJ](http://pet.coppe.ufrj.br/index.php/pt/) e assistente de pesquisa no [Projeto Acesso a Oportunidades](https://www.ipea.gov.br/acessooportunidades/sobre/). Busco entender, com a minha pesquisa, como o custo monetário das viagens impactam análises de desigualdade em termos de acesso a atividades.
+Olá! Sou o **Daniel Herszenhut**, mestrando em Engenharia de Transportes no [PET/COPPE/UFRJ](http://pet.coppe.ufrj.br/index.php/pt/) e assistente de pesquisa no [Projeto Acesso a Oportunidades](https://www.ipea.gov.br/acessooportunidades/sobre/). Busco entender, com a minha pesquisa, como o custo monetário das viagens impacta análises de desigualdade em termos de acesso a atividades.
 
 Meus interesses de pesquisa se concentram principalmente no campo da Mobilidade Urbana, estando mais intimamente relacionados à Justiça nos Transportes. Acredito na importância do uso da ciência de dados para expandir a fronteira do conhecimento e participo do desenvolvimento de [pacotes de *R*]({{< ref "/projects.pt" >}}) que têm como objetivo facilitar a vida daqueles que trabalham nessas áreas.
 
