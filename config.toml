@@ -1,4 +1,4 @@
-# baseurl = "https://dhersz.netlify.app/"
+baseurl = "https://dhersz.netlify.app/"
 title = "Daniel Herszenhut"
 author = "Daniel Herszenhut"
 canonifyurls = true
@@ -33,7 +33,6 @@ defaultContentLanguageInSubdir = true
 
 [languages.en]
   languageCode = "en"
-  baseurl = "https://dhersz.netlify.app/en/"
   # languageName = "English"
 
 [[languages.en.menu.primary]]
@@ -56,7 +55,6 @@ defaultContentLanguageInSubdir = true
 
 [languages.pt]
   languageCode = "pt"
-  baseurl = "https://dhersz.netlify.app/pt/"
   # languageName = "Português"
 
 [[languages.pt.menu.primary]]
