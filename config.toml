@@ -1,4 +1,4 @@
-baseurl = "https://dhersz.netlify.app"
+baseurl = "https://dhersz.netlify.app/"
 title = "Daniel Herszenhut"
 author = "Daniel Herszenhut"
 canonifyurls = true
