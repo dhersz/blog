@@ -5,7 +5,7 @@ date: "2020-11-27"
 meta_img: "image/34-anpet.png"
 ---
 
-![](/publication/anpet-2020.en_files/34-anpet.png){width=200}
+![](/publication/anpet-2020.en_files/34-anpet.png){width=200px}
 <br>
 
 #### Abstract
