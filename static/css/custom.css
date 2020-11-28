@@ -192,13 +192,13 @@ author {
     display: block;
     margin-top: 1rem;
     margin-bottom: 2rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     padding: 1rem;
     line-height: 20px;
     white-space: pre;
     word-break: break-all;
     word-wrap: break-word;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
     border: 1px solid #ddd;
     border-radius: 6px;
 }
