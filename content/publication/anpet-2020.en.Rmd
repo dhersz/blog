@@ -1,11 +1,11 @@
 ---
-title: O impacto do custo monetário dos deslocamentos sobre a equidade da acessibilidade ao emprego por transporte público no Rio de Janeiro
-author: Daniel Herszenhut, Rafael H. M. Pereira, Licinio da Silva Portugal, Matheus Henrique de Sousa Oliveira
-date: 2020-11-27
-meta_img: image/34-anpet.png
+title: "O impacto do custo monetário dos deslocamentos sobre a equidade da acessibilidade ao emprego por transporte público no Rio de Janeiro"
+author: "Daniel Herszenhut, Rafael H. M. Pereira, Licinio da Silva Portugal, Matheus Henrique de Sousa Oliveira"
+date: "2020-11-27"
+meta_img: "image/34-anpet.png"
 ---
 
-<center><img src="/image/34-anpet.png" width="200"></center>
+![](/publication/anpet-2020.en_files/34-anpet.png){width=200}
 <br>
 
 #### Abstract

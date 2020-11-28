@@ -163,13 +163,14 @@ author {
 
 /* centered, boxed blog post images */
 
-.content .figure img {
+.content .markdown figure {
+    background: #fff;
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    max-width: 100%;
+    max-width: 50%;
 }
 
 .content .markdown code, .content .markdown pre {
@@ -194,7 +195,7 @@ author {
     margin-bottom: 2rem;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
-    padding: 1rem;
+    padding: 0rem;
     line-height: 20px;
     white-space: pre;
     word-break: break-all;
@@ -205,7 +206,7 @@ author {
 
 .content .markdown pre code, .content .markdown pre output {
     /* enclosed by 4 backticks (````) */
-    padding: 0;
+    padding: 1rem;
     font-size: 0.75rem;
     line-height: 20px;
     background-color: #fff;
@@ -229,9 +230,11 @@ author {
 }
 
 .content .groupby {
-    list-style: none;
+    font-family: Georgia, serif;
+    font-weight: 500;
+    font-size: 2rem;
     color: #333333;
-    font-size: 1.2rem;
+    list-style: none;
     margin-top: 10px;
     margin-bottom: 8px;
 }
@@ -245,20 +248,38 @@ author {
 }
 
 .content .post-item .meta {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 0.9rem;
+    font-family: Georgia, serif;
+    font-size: 1.2rem;
     color: #738491;
     line-height: 2rem;
     display: block;
 }
 
-.content .post-item .meta a {
-    font-size: 1rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+.content .post-item .meta-title a {
+    color: #333333;
+    text-decoration: underline;
 }
 
-.content .post-item .meta a:hover {
-    text-decoration: underline;
+.content .post-item .meta-title a:hover {
+    color: #707070;
+}
+
+.content .meta a {
+    text-decoration: none;
+}
+
+.content .post-item .meta-date {
+    font-size: 1.125rem;
+    color: #586069;
+    line-height: 2rem;
+    display: block;
+    min-width: 10rem;
+}
+
+.content .post-item .meta-title {
+    font-size: 1.125rem;
+    line-height: 2rem;
+    margin-left: -2.3em;
 }
 
 .content .navigation .icon {
