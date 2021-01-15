@@ -3,7 +3,7 @@ title = "Daniel Herszenhut"
 author = "Daniel Herszenhut"
 canonifyurls = true
 paginate = 3
-theme = "hugo-renga"
+theme = "hugo-nanx2020"
 enableEmoji = true
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 DefaultContentLanguage = "pt"
@@ -19,8 +19,7 @@ defaultContentLanguageInSubdir = true
 
 [params]
   pagetitle = "Daniel Herszenhut"
-  copyright = "© 2020 Daniel Herszenhut"
-  copyrightUrl = "https://dhersz.netlify.app/"
+  copyright = "© 2021 Daniel Herszenhut"
   faviconfile = "image/favicon.png"
   logofile = "image/avatar.jpg"
   posts_navigation = true
@@ -30,7 +29,7 @@ defaultContentLanguageInSubdir = true
   progressively = false
   github = "dhersz"
   twitter = "dhersz"
-  email = "dhersz@gmail.com"
+  contact = "dhersz@gmail.com"
 
 [languages.en]
   languageCode = "en"
