@@ -6,4 +6,11 @@ description: "Minhas publicações"
 
 <div class="mx-0 mx-md-4"> <hr> </div>
 
-- <author>Daniel Herszenhut</author>, Rafael H. M. Pereira, Licinio da Silva Portugal, Matheus Henrique de Sousa Oliveira (2020). [O impacto do custo monetário dos deslocamentos sobre a equidade da acessibilidade ao emprego por transporte público no Rio de Janeiro]().
+[ORCID](https://orcid.org/0000-0001-8066-1105) &middot; [Lattes](http://lattes.cnpq.br/2549531392898541)
+
+<div class="mx-0 mx-md-4"> <hr> </div>
+
+## Artigos de congresso
+
+- Daniel Herszenhut, Rafael H. M. Pereira, Licinio da Silva Portugal, Matheus Henrique de Sousa Oliveira, 2020. **O impacto do custo monetário dos deslocamentos sobre a equidade da acessibilidade ao emprego por transporte público no Rio de Janeiro**, em: *Anais do 34o Congresso de Pesquisa e Ensino em Transportes*. Apresentado no 34o Congresso de Pesquisa e Ensino em Transporte da ANPET, Associação Nacional de Pesquisa e Ensino em Transportes, pp. 54–66. \
+[[PDF](http://www.anpet.org.br/anais34/documentos/2020/Aspectos%20Econ%C3%B4micos%20Sociais%20Pol%C3%ADticos%20e%20Ambientais%20do%20Transporte/Economia%20e%20Regula%C3%A7%C3%A3o%20dos%20Transportes%20I/5_85_AC.pdf)]

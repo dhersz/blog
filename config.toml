@@ -47,11 +47,11 @@ defaultContentLanguageInSubdir = true
   url = "/en/projects/"
   weight = 2
 
-#[[languages.en.menu.primary]]
-#  identifier = "publications"
-#  name = "Publications"
-#  url = "/en/publications/"
-#  weight = 3
+[[languages.en.menu.primary]]
+  identifier = "publications"
+  name = "Publications"
+  url = "/en/publications/"
+  weight = 3
 
 [languages.pt]
   languageCode = "pt"
@@ -69,8 +69,8 @@ defaultContentLanguageInSubdir = true
   url = "/pt/projects/"
   weight = 2
 
-#[[languages.pt.menu.primary]]
-#  identifier = "publicacoes"
-#  name = "Publicações"
-#  url = "/pt/publications/"
-#  weight = 3
+[[languages.pt.menu.primary]]
+  identifier = "publicacoes"
+  name = "Publicações"
+  url = "/pt/publications/"
+  weight = 3
