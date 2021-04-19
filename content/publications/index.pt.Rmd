@@ -10,7 +10,12 @@ description: "Minhas publicações"
 
 <div class="mx-0 mx-md-4"> <hr> </div>
 
+## Artigos de revista
+
+- Rafael H. M. Pereira, Marcus Saraiva, Daniel Herszenhut, Carlos Kaue Vieira Braga, Matthew Wigginton Conway, 2021. **r5r: Rapid Realistic Routing on Multimodal Transport Networks with R<sup>5</sup> in R**. *Findings*. \
+[[PDF]](https://findingspress.org/api/v1/articles/21262-r5r-rapid-realistic-routing-on-multimodal-transport-networks-with-r-5-in-r.pdf) | [[DOI]](https://doi.org/10.32866/001c.21262)
+
 ## Artigos de congresso
 
 - Daniel Herszenhut, Rafael H. M. Pereira, Licinio da Silva Portugal, Matheus Henrique de Sousa Oliveira, 2020. **O impacto do custo monetário dos deslocamentos sobre a equidade da acessibilidade ao emprego por transporte público no Rio de Janeiro**, em: *Anais do 34o Congresso de Pesquisa e Ensino em Transportes*. Apresentado no 34o Congresso de Pesquisa e Ensino em Transporte da ANPET, Associação Nacional de Pesquisa e Ensino em Transportes, pp. 54–66. \
-[[PDF](http://www.anpet.org.br/anais34/documentos/2020/Aspectos%20Econ%C3%B4micos%20Sociais%20Pol%C3%ADticos%20e%20Ambientais%20do%20Transporte/Economia%20e%20Regula%C3%A7%C3%A3o%20dos%20Transportes%20I/5_85_AC.pdf)]
+[[PDF]](http://www.anpet.org.br/anais34/documentos/2020/Aspectos%20Econ%C3%B4micos%20Sociais%20Pol%C3%ADticos%20e%20Ambientais%20do%20Transporte/Economia%20e%20Regula%C3%A7%C3%A3o%20dos%20Transportes%20I/5_85_AC.pdf)

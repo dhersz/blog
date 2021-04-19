@@ -8,10 +8,14 @@ description: "Meus projetos"
 
 ## Pacotes de R
 
-- [gtfstools](https://github.com/ipeaGIT/gtfstools) \
-  Ferramentas para edição e análise de arquivos GTFS \
-  [GitHub](https://github.com/ipeaGIT/gtfstools)
+- [gtfsio](https://r-transit.github.io/gtfsio/) \
+  Ferramentas para o desenvolvimento de pacotes de R relacionados a dados GTFS \
+  [CRAN](https://CRAN.R-project.org/package=gtfsio) | [GitHub](https://github.com/r-transit/gtfsio)
 
-- [r5r](https://github.com/ipeaGIT/r5r) \
+- [gtfstools](https://ipeagit.github.io/gtfstools/) \
+  Ferramentas para edição e análise de arquivos GTFS \
+  [CRAN](https://CRAN.R-project.org/package=gtfstools) | [GitHub](https://github.com/ipeaGIT/gtfstools)
+
+- [r5r](https://ipeagit.github.io/r5r/) \
   Roteamento rápido e realístico em redes de transporte multimodais usando o [R<sup>5</sup>](https://github.com/conveyal/r5) \
-  [CRAN](https://CRAN.R-project.org/package=r5r) | [GitHub](https://github.com/ipeaGIT/r5r)
+  [CRAN](https://CRAN.R-project.org/package=r5r) | [GitHub](https://github.com/ipeaGIT/r5r) | [DOI](https://doi.org/10.32866/001c.21262)
