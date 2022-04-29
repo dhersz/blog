@@ -12,6 +12,8 @@ description: "Minhas publicações"
 
 ## Artigos de revista
 
+- Daniel Herszenhut, Rafael H. M. Pereira, Licinio da Silva Portugal, Matheus Henrique de Sousa Oliveira, 2022. **The impact of transit monetary costs on transport inequality**. *Journal of Transport Geography*. \
+[[Preprint]](https://osf.io/e3tac/) | [[DOI]](https://doi.org/10.1016/j.jtrangeo.2022.103309)
 - Rafael H. M. Pereira, Marcus Saraiva, Daniel Herszenhut, Carlos Kaue Vieira Braga, Matthew Wigginton Conway, 2021. **r5r: Rapid Realistic Routing on Multimodal Transport Networks with R<sup>5</sup> in R**. *Findings*. \
 [[PDF]](https://findingspress.org/api/v1/articles/21262-r5r-rapid-realistic-routing-on-multimodal-transport-networks-with-r-5-in-r.pdf) | [[DOI]](https://doi.org/10.32866/001c.21262)
 
