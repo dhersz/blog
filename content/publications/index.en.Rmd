@@ -24,5 +24,8 @@ description: "My publications"
 
 ## Working papers and reports
 
+- Carlos Kauê Vieira Braga, Diego Bogado Tomasiello, Daniel Herszenhut, João Lucas Albuquerque Oliveira, Rafael H. M. Pereira, 2022.**Impactos da expansão do metrô de Fortaleza sobre o acesso a oportunidades de emprego, saúde e educação**. *Texto para discussão 2767*. Instituto de Pesquisa Econômica Aplicada (Ipea). \
+[[PDF]](https://www.ipea.gov.br/portal/images/stories/PDFs/TDs/220518_218180_td_2767_web.pdf) | [[DOI]](http://dx.doi.org/10.38116/td2767)
+
 - Rafael H. M. Pereira, Lucas Warwar, João Parga, João Bazzo, Carlos Kauê Vieira Braga, Daniel Herszenhut, Marcus Saraiva, 2021. **Tendências e desigualdades da mobilidade urbana no Brasil I: o uso do transporte coletivo e individual**. *Texto para discussão 2673*. Instituto de Pesquisa Econômica Aplicada (Ipea). \
-[[PDF]](http://repositorio.ipea.gov.br/bitstream/11058/10713/1/td_2673.pdf) | [[DOI]]( http://dx.doi.org/10.38116/td2673) | [[Webinar]](https://www.youtube.com/watch?v=gA2GqH3ybBw)
+[[PDF]](http://repositorio.ipea.gov.br/bitstream/11058/10713/1/td_2673.pdf) | [[DOI]](http://dx.doi.org/10.38116/td2673) | [[Webinar]](https://www.youtube.com/watch?v=gA2GqH3ybBw)
