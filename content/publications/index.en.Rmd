@@ -24,6 +24,9 @@ description: "My publications"
 
 ## Working papers and reports
 
+- Rafael H. M. Pereira, Daniel Herszenhut, Carlos Kauê Vieira Braga, João Pedro Bazzo, João Lucas Albuquerque Oliveira, João Pedro Parga, Marcus Saraiva, Luiz Pedro Silva, Diego Bogado Tomasiello, Lucas Warwar. 2022. **Distribuição espacial de características sociodemográficas e localização de empregos e serviços públicos das vinte maiores cidades do Brasil**. *Texto para discussão 2772*. Instituto de Pesquisa Econômica Aplicada (Ipea). \
+[[PDF]](http://repositorio.ipea.gov.br/bitstream/11058/11225/1/td_2772.pdf) | [[DOI]](http://dx.doi.org/10.38116/td2772)
+
 - Carlos Kauê Vieira Braga, Diego Bogado Tomasiello, Daniel Herszenhut, João Lucas Albuquerque Oliveira, Rafael H. M. Pereira, 2022.**Impactos da expansão do metrô de Fortaleza sobre o acesso a oportunidades de emprego, saúde e educação**. *Texto para discussão 2767*. Instituto de Pesquisa Econômica Aplicada (Ipea). \
 [[PDF]](https://www.ipea.gov.br/portal/images/stories/PDFs/TDs/220518_218180_td_2767_web.pdf) | [[DOI]](http://dx.doi.org/10.38116/td2767)
 

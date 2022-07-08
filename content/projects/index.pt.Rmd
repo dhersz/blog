@@ -19,3 +19,7 @@ description: "Meus projetos"
 - [r5r](https://ipeagit.github.io/r5r/) \
   Roteamento rápido e realístico em redes de transporte multimodais usando o [R<sup>5</sup>](https://github.com/conveyal/r5) \
   [CRAN](https://CRAN.R-project.org/package=r5r) | [GitHub](https://github.com/ipeaGIT/r5r) | [DOI](https://doi.org/10.32866/001c.21262)
+  
+- [accessibility](https://ipeagit.github.io/accessibility/) \
+  Medidas de acessibilidade urbana \
+  [CRAN](https://CRAN.R-project.org/package=accessibility) | [GitHub](https://github.com/ipeaGIT/accessibility)
