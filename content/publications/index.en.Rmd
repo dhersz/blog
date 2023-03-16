@@ -10,25 +10,37 @@ description: "My publications"
 
 <div class="mx-0 mx-md-4"> <hr> </div>
 
+## Books
+
+- Rafael H. M. Pereira, Daniel Herszenhut. 2023. **Introduction to urban accessibility: a practical guide with R**. \
+[[Website]](https://ipeagit.github.io/intro_access_book/en/index.en.html)
+
 ## Journal articles
 
-- Daniel Herszenhut, Rafael H. M. Pereira, Licinio da Silva Portugal, Matheus Henrique de Sousa Oliveira, 2022. **The impact of transit monetary costs on transport inequality**. *Journal of Transport Geography*. \
+- Daniel Herszenhut, Rafael H. M. Pereira, Licinio da Silva Portugal, Matheus Henrique de Sousa Oliveira. 2022. **The impact of transit monetary costs on transport inequality**. *Journal of Transport Geography*. \
 [[Preprint]](https://osf.io/e3tac/) | [[DOI]](https://doi.org/10.1016/j.jtrangeo.2022.103309)
-- Rafael H. M. Pereira, Marcus Saraiva, Daniel Herszenhut, Carlos Kaue Vieira Braga, Matthew Wigginton Conway, 2021. **r5r: Rapid Realistic Routing on Multimodal Transport Networks with R<sup>5</sup> in R**. *Findings*. \
+
+- Rafael H. M. Pereira, Marcus Saraiva, Daniel Herszenhut, Carlos Kaue Vieira Braga, Matthew Wigginton Conway. 2021. **r5r: Rapid Realistic Routing on Multimodal Transport Networks with R<sup>5</sup> in R**. *Findings*. \
 [[PDF]](https://findingspress.org/api/v1/articles/21262-r5r-rapid-realistic-routing-on-multimodal-transport-networks-with-r-5-in-r.pdf) | [[DOI]](https://doi.org/10.32866/001c.21262)
 
 ## Conference papers
 
-- Daniel Herszenhut, Rafael H. M. Pereira, Licinio da Silva Portugal, Matheus Henrique de Sousa Oliveira, 2020. **O impacto do custo monetário dos deslocamentos sobre a equidade da acessibilidade ao emprego por transporte público no Rio de Janeiro**, in: *Anais do 34o Congresso de Pesquisa e Ensino em Transportes*. Presented at the 34o Congresso de Pesquisa e Ensino em Transporte da ANPET, Associação Nacional de Pesquisa e Ensino em Transportes, pp. 54–66. \
+- Daniel Herszenhut, Rafael H. M. Pereira, Licinio da Silva Portugal, Matheus Henrique de Sousa Oliveira. 2020. **O impacto do custo monetário dos deslocamentos sobre a equidade da acessibilidade ao emprego por transporte público no Rio de Janeiro**, in: *Anais do 34o Congresso de Pesquisa e Ensino em Transportes*. Presented at the 34o Congresso de Pesquisa e Ensino em Transporte da ANPET, Associação Nacional de Pesquisa e Ensino em Transportes, pp. 54–66. \
 [[PDF]](http://www.anpet.org.br/anais34/documentos/2020/Aspectos%20Econ%C3%B4micos%20Sociais%20Pol%C3%ADticos%20e%20Ambientais%20do%20Transporte/Economia%20e%20Regula%C3%A7%C3%A3o%20dos%20Transportes%20I/5_85_AC.pdf)
 
 ## Working papers and reports
 
+- Andrew David Nell, Daniel Herszenhut, Camilla Knudsen, Shohei Nakamura, Marcus Saraiva, Paolo Avner. 2023. **Carbon pricing and transit accessibility to jobs: impacts on inequality in Rio de Janeiro and Kinshasa**. *Policy Research Working Paper*. World Bank Group. \
+[[DOI]](https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099434503062310151/idu05a4ae20c0a79d042a40a09c01721e4239201) | [[PDF]](https://documents1.worldbank.org/curated/en/099434503062310151/pdf/IDU05a4ae20c0a79d042a40a09c01721e4239201.pdf)
+
+- Rafael H. M. Pereira, Carlos Kauê Vieira Braga, Daniel Herszenhut, Marcus Saraiva, Diego Bogado Tomasiello. 2022. **Estimativas de acessibilidade a empregos e serviços públicos via transporte ativo, público e privado nas vinte maiores cidades do Brasil no período 2017-2019**. *Texto para discussão 2800*. Instituto de Pesquisa Econômica Aplicada (Ipea). \
+[[PDF]](https://repositorio.ipea.gov.br/bitstream/11058/11345/2/TD_2800_Web.pdf) | [[DOI]](http://dx.doi.org/10.38116/td2800)
+
 - Rafael H. M. Pereira, Daniel Herszenhut, Carlos Kauê Vieira Braga, João Pedro Bazzo, João Lucas Albuquerque Oliveira, João Pedro Parga, Marcus Saraiva, Luiz Pedro Silva, Diego Bogado Tomasiello, Lucas Warwar. 2022. **Distribuição espacial de características sociodemográficas e localização de empregos e serviços públicos das vinte maiores cidades do Brasil**. *Texto para discussão 2772*. Instituto de Pesquisa Econômica Aplicada (Ipea). \
 [[PDF]](http://repositorio.ipea.gov.br/bitstream/11058/11225/1/td_2772.pdf) | [[DOI]](http://dx.doi.org/10.38116/td2772)
 
-- Carlos Kauê Vieira Braga, Diego Bogado Tomasiello, Daniel Herszenhut, João Lucas Albuquerque Oliveira, Rafael H. M. Pereira, 2022.**Impactos da expansão do metrô de Fortaleza sobre o acesso a oportunidades de emprego, saúde e educação**. *Texto para discussão 2767*. Instituto de Pesquisa Econômica Aplicada (Ipea). \
+- Carlos Kauê Vieira Braga, Diego Bogado Tomasiello, Daniel Herszenhut, João Lucas Albuquerque Oliveira, Rafael H. M. Pereira. 2022.**Impactos da expansão do metrô de Fortaleza sobre o acesso a oportunidades de emprego, saúde e educação**. *Texto para discussão 2767*. Instituto de Pesquisa Econômica Aplicada (Ipea). \
 [[PDF]](https://www.ipea.gov.br/portal/images/stories/PDFs/TDs/220518_218180_td_2767_web.pdf) | [[DOI]](http://dx.doi.org/10.38116/td2767)
 
-- Rafael H. M. Pereira, Lucas Warwar, João Parga, João Bazzo, Carlos Kauê Vieira Braga, Daniel Herszenhut, Marcus Saraiva, 2021. **Tendências e desigualdades da mobilidade urbana no Brasil I: o uso do transporte coletivo e individual**. *Texto para discussão 2673*. Instituto de Pesquisa Econômica Aplicada (Ipea). \
+- Rafael H. M. Pereira, Lucas Warwar, João Parga, João Bazzo, Carlos Kauê Vieira Braga, Daniel Herszenhut, Marcus Saraiva. 2021. **Tendências e desigualdades da mobilidade urbana no Brasil I: o uso do transporte coletivo e individual**. *Texto para discussão 2673*. Instituto de Pesquisa Econômica Aplicada (Ipea). \
 [[PDF]](http://repositorio.ipea.gov.br/bitstream/11058/10713/1/td_2673.pdf) | [[DOI]](http://dx.doi.org/10.38116/td2673) | [[Webinar]](https://www.youtube.com/watch?v=gA2GqH3ybBw)
