@@ -1,0 +1,284 @@
+---
+title: "{accessibility} v1.1.0 overview"
+author: Daniel Herszenhut
+date: "2023-06-22"
+slug: accessibility_1_1_0
+categories: ["package release", "accessibility"]
+tags: ["package release", "accessibility"]
+meta_img: images/site-home.png
+description: "{accessibility} v1.1.0 overview"
+bibliography: references.bib
+---
+
+
+
+<p>A new version of the <code>{accessibility}</code> R package has finally arrived on CRAN with several new goodies! 🥳 This post overviews some of the new features added to <code>{accessibility}</code> in version v1.1.0.</p>
+<div id="new-accessibility-functions" class="section level2">
+<h2>New accessibility functions</h2>
+<p>The packages includes two novel accessibility functions. <code>spatial_availability()</code> and <code>balancing_cost()</code> implement the… well… Spatial Availability and Balancing Cost accessibility measures.</p>
+<p>Spatial Availability has been originally proposed by <span class="citation">Soukhov et al. (<a href="#ref-soukhov2023introducing" role="doc-biblioref">2023</a>)</span>. The measure takes competition effects into account, and the accessibility levels that result from its usage are proportional both to the demand in each origin and to the travel cost it takes to reach the destinations. Just like any other accessibility function in the package, <code>spatial_availability()</code> is generic over any kind of travel cost, such as distance, time and money. In the code below, we use some datasets shipped with the package to demonstrate the function:</p>
+<pre class="r"><code>library(accessibility)
+
+data_dir &lt;- system.file(&quot;extdata&quot;, package = &quot;accessibility&quot;)
+travel_matrix &lt;- readRDS(file.path(data_dir, &quot;travel_matrix.rds&quot;))
+land_use_data &lt;- readRDS(file.path(data_dir, &quot;land_use_data.rds&quot;))
+
+spat_availability &lt;- spatial_availability(
+  travel_matrix,
+  land_use_data,
+  opportunity = &quot;jobs&quot;,
+  travel_cost = &quot;travel_time&quot;,
+  demand = &quot;population&quot;,
+  decay_function = decay_exponential(decay_value = 0.1)
+)
+head(spat_availability)</code></pre>
+<pre><code>##                 id     jobs
+## 1: 89a88cdb57bffff 186.0876
+## 2: 89a88cdb597ffff 140.0738
+## 3: 89a88cdb5b3ffff 736.5830
+## 4: 89a88cdb5cfffff 900.9284
+## 5: 89a88cd909bffff   0.0000
+## 6: 89a88cd90b7ffff 204.7962</code></pre>
+<p>Balancing Cost has been originally proposed <span class="citation">Barboza et al. (<a href="#ref-barboza2021balancing" role="doc-biblioref">2021</a>)</span> (though under the name of Balancing Time). This measure is define as the travel cost required to reach as many opportunities as the number of people in a given origin.</p>
+<p>The function includes most of the same parameters present in <code>spatial_availability()</code> and an additional <code>cost_increment</code> parameter, that should be used to specify the increment that defines the travel cost distribution from which the potential balancing costs will be picked. For example, an increment of 1 (the default) tends to suit travel time distributions, meaning that the function will first check if any origins reach their balancing cost with a travel time of 0 minutes, then 1 minute, 2, 3, 4, …, etc. On the other hand, an increment of 1 might be too big for a distribution of monetary costs, which could possibly benefit from a smaller increment of 0.05 (5 cents), for example. Such increment results in the function looking for balancing costs first at a monetary cost of 0, then 0.05, 0.10, …, etc. In the example below, we use the default cost increment of 1:</p>
+<pre class="r"><code>bc &lt;- balancing_cost(
+  travel_matrix,
+  land_use_data,
+  opportunity = &quot;jobs&quot;,
+  travel_cost = &quot;travel_time&quot;,
+  demand = &quot;population&quot;
+)
+head(bc)</code></pre>
+<pre><code>##                 id travel_time
+## 1: 89a881a5a2bffff          15
+## 2: 89a881a5a2fffff          13
+## 3: 89a881a5a67ffff          23
+## 4: 89a881a5a6bffff           7
+## 5: 89a881a5a6fffff          10
+## 6: 89a881a5b03ffff           6</code></pre>
+</div>
+<div id="inequality-and-poverty-measures" class="section level2">
+<h2>Inequality and poverty measures</h2>
+<p>Accessibility levels are often used to assess inequalities in the distribution and in the access to opportunities. In fact, that’s such a common analysis for us at the <a href="https://www.ipea.gov.br/acessooportunidades/en/">Access to Opportunities Project</a> that we have implemented the same functions to calculate the same inequality measures probably dozens of times (here are some links to the functions I can remember of in less than 5 seconds: <a href="https://github.com/ipeaGIT/avaliacao_intervencoes/blob/a9334c32dce8ec00314b9c170b4b4eb7c76e4663/R/5-compare_access.R#L1533">1</a>; <a href="https://github.com/ipeaGIT/access_uber/blob/8f222c04f6c676d8bc27d54eda23ed01944b2911/R/02_calculate_access.R#L104">2</a>; <a href="https://github.com/dhersz/msc-thesis/blob/0da6c07b78c41f76eeaacc18d00dfc6fd09be37c/code/06_analyse_results.R#L1829">3</a>).</p>
+<p>Implementing the same functions over and over is an obvious waste of time, so we have decided to include some functions to calculate inequality and poverty measures in this new <code>{accessibility}</code> version. Currently, <code>palma_ratio()</code> and <code>gini_index()</code> calculate the Palma Ratio and the Gini Index (wow) of an accessibility distribution and <code>fgt_poverty()</code> calculates the poverty using the Foster-Greer-Thorbecke (FGT) poverty measures.</p>
+<p>All inequality and poverty measures work similarly, taking as inputs the accessibility distribution, a sociodemographic dataset and the columns in these datasets that contain the accessibility variable itself and the population variable that should be used to weigh the estimates. Each function may also include some specific parameters, which will be mentioned later. Let’s see how they work.</p>
+<div id="palma-ratio" class="section level3">
+<h3>Palma Ratio</h3>
+<p>This measure is originally defined as the income share of the wealthiest 10% of a population divided by the income share of the poorest 40%. In the transport planning context, it has been adapted as the average accessibility of the wealthiest 10% divided by the average accessibility of the poorest 40%.</p>
+<p><code>palma_ratio()</code> includes an income parameter, in addition to those previously mentioned, used to list the column in the sociodemographic dataset with the income variable that should be used to classify the population in socioeconomic groups. This variable should describe income per capita (e.g. mean income per capita, household income per capita, etc), instead of the total amount of income in each cell. With the code below, we first calculate an accessibility distribution to then demonstrate the function:</p>
+<pre class="r"><code>access &lt;- cumulative_cutoff(
+  travel_matrix,
+  land_use_data,
+  opportunity = &quot;jobs&quot;,
+  travel_cost = &quot;travel_time&quot;,
+  cutoff = 30
+)
+
+palma &lt;- palma_ratio(
+  access,
+  sociodemographic_data = land_use_data,
+  opportunity = &quot;jobs&quot;,
+  population = &quot;population&quot;,
+  income = &quot;income_per_capita&quot;
+)
+palma</code></pre>
+<pre><code>##    palma_ratio
+## 1:    3.800465</code></pre>
+</div>
+<div id="gini-index" class="section level3">
+<h3>Gini Index</h3>
+<p>Probably the most widely used inequality measure in the transport planning context, although not without some criticism<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, the Gini Index could not be left without an implementation in <code>{accessibility}</code>:</p>
+<pre class="r"><code>gini &lt;- gini_index(
+  access,
+  sociodemographic_data = land_use_data,
+  opportunity = &quot;jobs&quot;,
+  population = &quot;population&quot;
+)
+gini</code></pre>
+<pre><code>##    gini_index
+## 1:  0.4715251</code></pre>
+</div>
+<div id="foster-greer-thorbecke-fgt-poverty-measures" class="section level3">
+<h3>Foster-Greer-Thorbecke (FGT) poverty measures</h3>
+<p><code>fgt_poverty()</code> calculates the FGT metrics, a family of poverty measures originally proposed by <span class="citation">Foster, Greer, and Thorbecke (<a href="#ref-foster1984class" role="doc-biblioref">1984</a>)</span> that capture the extent and severity of poverty within an accessibility distribution. The FGT family is composed of three measures that differ based on the <span class="math inline">\(\alpha\)</span> parameter used to calculate them (either 0, 1 or 2) and which also changes their interpretation:</p>
+<ul>
+<li>with <span class="math inline">\(\alpha = 0\)</span> (FGT0) the measure captures the extent of poverty as a simple headcount - i.e. the proportion of people below the poverty line;</li>
+<li>with <span class="math inline">\(\alpha = 1\)</span> (FGT1) the measure, also know as the “poverty gap index”, captures the severity of poverty as the average percentage distance between the poverty line and the accessibility of individuals below the poverty line;</li>
+<li>with <span class="math inline">\(\alpha = 2\)</span> (FGT2) the measure simultaneously captures the extent and the severity of poverty by calculating the number of people below the poverty line weighted by the size of the accessibility shortfall relative to the poverty line.</li>
+</ul>
+<p>This function includes an additional <code>poverty_line</code> parameter, used to define the poverty line below which individuals are considered to be in accessibility poverty.</p>
+<pre class="r"><code>poverty &lt;- fgt_poverty(
+  access,
+  opportunity = &quot;jobs&quot;,
+  sociodemographic_data = land_use_data,
+  population = &quot;population&quot;,
+  poverty_line = 95368
+)
+poverty</code></pre>
+<pre><code>##         FGT0      FGT1      FGT2
+## 1: 0.5745378 0.3277383 0.2218769</code></pre>
+</div>
+</div>
+<div id="multiple-cutoffs-decay-values-intervals-etc." class="section level2">
+<h2>Multiple cutoffs, decay values, intervals, etc.</h2>
+<p>Much is said in accessibility literature about the boundary effect of the modifiable temporal unit problem (MTUP), which is basically concerned with the choice of travel time thresholds in cumulative opportunities measures <span class="citation">(<a href="#ref-pereira2019future" role="doc-biblioref">Pereira 2019</a>)</span>. Fair point: if you only look at a single travel time threshold your accessibility estimates may be biased, or you may open the possibility for opportunistic analyses based on conclusions that result from a very specific combination of travel time thresholds and other criteria.</p>
+<p>One way to mitigate this issue is to conduct a sensitivity analysis using several different thresholds, which is later used to arrive at any conclusions, policy recommendations, etc. To facilitate making such analyses, <code>cumulative_cutoff()</code> now accepts a numeric vector in the <code>cutoff</code> parameter. In the previous version it would only accept a single number. With the code below we calculate cumulative accessibility levels using travel time thresholds that range from 30 to 40 minutes:</p>
+<pre class="r"><code>access &lt;- cumulative_cutoff(
+  travel_matrix,
+  land_use_data,
+  opportunity = &quot;jobs&quot;,
+  travel_cost = &quot;travel_time&quot;,
+  cutoff = 30:40
+)
+access</code></pre>
+<pre><code>##                    id travel_time   jobs
+##    1: 89a881a5a2bffff          30  14561
+##    2: 89a881a5a2bffff          31  16647
+##    3: 89a881a5a2bffff          32  23877
+##    4: 89a881a5a2bffff          33  24957
+##    5: 89a881a5a2bffff          34  29096
+##   ---                                   
+## 9874: 89a88cdb6dbffff          36  36570
+## 9875: 89a88cdb6dbffff          37  52321
+## 9876: 89a88cdb6dbffff          38  68406
+## 9877: 89a88cdb6dbffff          39  82076
+## 9878: 89a88cdb6dbffff          40 100458</code></pre>
+<p>We can see that for each of our origins we have eleven accessibility estimates (from 30 to 40 minutes, every 1 minute). As one would imagine, the higher the travel time cutoff, the higher the accessibility levels.</p>
+<p>An issue that is brought up much less frequently in the accessibility literature, however, is that <em>any</em> accessibility measure is susceptible to ad-hoc choices. For example, the result of gravity measures are completely dependent on the decay parameter used in the impedance function. The value of such parameter can be derived from calibrations based on observed travel behaviour, normative ad-hoc choices or even from recommended values frequently used in the literature. Still, the debate on the arbitrariness of gravity measures’ estimates is much less common than when dealing with cumulative measures.</p>
+<p>I digress, but the main point here is that all accessibility functions from the package now allow us to use multiple decay values, threshold intervals, etc, not only <code>cumulative_cutoff()</code>. In other words, making sensitivity analysis to mitigate the impact of ad-hoc choices when calculating accessibility levels is much easier, whatever the measure you choose to use. For example, when calculating accessibility using a negative exponential impedance function, we can use several different decay values to see how that affect our results:</p>
+<pre class="r"><code>exp_access &lt;- gravity(
+  travel_matrix,
+  land_use_data,
+  decay_function = decay_exponential(decay_value = c(0.1, 0.2, 0.3)),
+  opportunity = &quot;schools&quot;,
+  travel_cost = &quot;travel_time&quot;
+)
+exp_access</code></pre>
+<pre><code>##                    id decay_function_arg    schools
+##    1: 89a88cdb57bffff                0.1 1.39145243
+##    2: 89a88cdb597ffff                0.1 4.64420315
+##    3: 89a88cdb5b3ffff                0.1 4.22307428
+##    4: 89a88cdb5cfffff                0.1 2.33540919
+##    5: 89a88cd909bffff                0.1 3.29031323
+##   ---                                              
+## 2690: 89a881acda3ffff                0.3 0.20162596
+## 2691: 89a88cdb543ffff                0.3 0.02162614
+## 2692: 89a88cda667ffff                0.3 0.25812919
+## 2693: 89a88cd900fffff                0.3 0.01176093
+## 2694: 89a881aebafffff                0.3 0.00000000</code></pre>
+<p>Similarly, we can provide several cutoff intervals to <code>cumulative_interval()</code> and several minimum number of opportunities to <code>cost_to_closest()</code>:</p>
+<pre class="r"><code>cum_interval &lt;- cumulative_interval(
+  travel_matrix = travel_matrix,
+  land_use_data = land_use_data,
+  interval = list(c(30, 60), c(40, 80)),
+  opportunity = &quot;jobs&quot;,
+  travel_cost = &quot;travel_time&quot;
+)
+cum_interval</code></pre>
+<pre><code>##                    id interval   jobs
+##    1: 89a88cdb57bffff  [30,60] 231043
+##    2: 89a88cdb597ffff  [30,60] 146922
+##    3: 89a88cdb5b3ffff  [30,60] 219865
+##    4: 89a88cdb5cfffff  [30,60] 340554
+##    5: 89a88cd909bffff  [30,60] 231401
+##   ---                                
+## 1792: 89a881acda3ffff  [40,80] 403342
+## 1793: 89a88cdb543ffff  [40,80] 480220
+## 1794: 89a88cda667ffff  [40,80] 446719
+## 1795: 89a88cd900fffff  [40,80] 326048
+## 1796: 89a881aebafffff  [40,80]      0</code></pre>
+<pre class="r"><code>min_cost &lt;- cost_to_closest(
+  travel_matrix,
+  land_use_data,
+  n = 1:5,
+  opportunity = &quot;schools&quot;,
+  travel_cost = &quot;travel_time&quot;
+)
+min_cost</code></pre>
+<pre><code>##                    id n travel_time
+##    1: 89a881a5a2bffff 1          29
+##    2: 89a881a5a2bffff 2          32
+##    3: 89a881a5a2bffff 3          36
+##    4: 89a881a5a2bffff 4          36
+##    5: 89a881a5a2bffff 5          36
+##   ---                              
+## 4486: 89a88cdb6dbffff 1          24
+## 4487: 89a88cdb6dbffff 2          29
+## 4488: 89a88cdb6dbffff 3          32
+## 4489: 89a88cdb6dbffff 4          37
+## 4490: 89a88cdb6dbffff 5          37</code></pre>
+</div>
+<div id="multiple-travel-costs" class="section level2">
+<h2>Multiple travel costs</h2>
+<p>Last, but definitely not least, is that <code>cumulative_cutoff()</code> now accepts a character vector in <code>travel_cost</code>, enabling us to calculate accessibility using multiple travel costs. This is especially important when calculating accessibility levels from pareto frontiers of multiple travel costs, instead of a simpler travel matrix that consider only one cost. For example, let’s have a look at a pareto frontier of travel time and monetary cost that is shipped with the package:</p>
+<pre class="r"><code>pareto_frontier &lt;- readRDS(file.path(data_dir, &quot;pareto_frontier.rds&quot;))
+
+pareto_frontier</code></pre>
+<pre><code>##                  from_id           to_id travel_time monetary_cost
+##       1: 89a881a5a2bffff 89a881a5a2bffff           0             0
+##       2: 89a881a5a2bffff 89a881a5a2fffff          24             0
+##       3: 89a881a5a2bffff 89a881a5a2fffff          22             5
+##       4: 89a881a5a2bffff 89a881a5a67ffff           8             0
+##       5: 89a881a5a2bffff 89a881a5a6bffff          22             0
+##      ---                                                          
+## 1323424: 89a88cdb6dbffff 89a88cdb6cbffff          10             0
+## 1323425: 89a88cdb6dbffff 89a88cdb6cfffff          18             0
+## 1323426: 89a88cdb6dbffff 89a88cdb6d3ffff           7             0
+## 1323427: 89a88cdb6dbffff 89a88cdb6d7ffff          19             0
+## 1323428: 89a88cdb6dbffff 89a88cdb6dbffff           0             0</code></pre>
+<pre class="r"><code>pareto_frontier[from_id == &quot;89a881a5a2bffff&quot; &amp; to_id == &quot;89a881a5a2fffff&quot;]</code></pre>
+<pre><code>##            from_id           to_id travel_time monetary_cost
+## 1: 89a881a5a2bffff 89a881a5a2fffff          24             0
+## 2: 89a881a5a2bffff 89a881a5a2fffff          22             5</code></pre>
+<p>We can see that the same origin-destination pair may appear multiple times in the matrix, with each trip alternative presenting different trade-offs of travel time and monetary cost. The first trip alternative between the pair highlighted above is slower but cheaper than the second one, for example.</p>
+<p>Calculating accessibility levels from pareto frontiers using cumulative measures is relatively similar to calculating accessibility from a simpler matrix, but we have to pay attention to a fill things. The cost restriction must be applied simultaneously and we have to make sure that we’re not double counting opportunities. Luckily, the new implementation of <code>cumulative_cutoff()</code> deals with such issues for us. If we combine the ability of considering multiple travel costs with the ability of considering multiple cost cutoffs for each one of the travel costs we have specified, we have pretty rich and complex results from a single function call:</p>
+<pre class="r"><code>cum_pareto_access &lt;- cumulative_cutoff(
+  pareto_frontier,
+  land_use_data = land_use_data,
+  opportunity = &quot;jobs&quot;,
+  travel_cost = c(&quot;travel_time&quot;, &quot;monetary_cost&quot;),
+  cutoff = list(c(20, 30), c(0, 5, 10))
+)
+cum_pareto_access</code></pre>
+<pre><code>##                    id travel_time monetary_cost  jobs
+##    1: 89a881a5a2bffff          20             0   397
+##    2: 89a881a5a2bffff          20             5   397
+##    3: 89a881a5a2bffff          20            10   397
+##    4: 89a881a5a2bffff          30             0   846
+##    5: 89a881a5a2bffff          30             5 20923
+##   ---                                                
+## 5384: 89a88cdb6dbffff          20             5   264
+## 5385: 89a88cdb6dbffff          20            10   264
+## 5386: 89a88cdb6dbffff          30             0   543
+## 5387: 89a88cdb6dbffff          30             5  1567
+## 5388: 89a88cdb6dbffff          30            10  1567</code></pre>
+<p>We can see that we have six accessibility estimates for each origin in our pareto frontier, which is the number of possible combinations of travel time and monetary cost cutoffs.</p>
+<p>Currently, <code>cumulative_cutoff()</code> is the only accessibility function that can take multiple travel costs as input. Please follow <a href="https://github.com/ipeaGIT/accessibility/issues/21">this GitHub issue</a> for updates on the other functions.</p>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p><code>{accessibility}</code> v1.1.0 is filled with goodies that help making accessibility research more methodologically robust and reliable. New accessibility measures, poverty and inequality measures, the ability to consider multiple cutoffs/decay values/cutoff intervals/etc and the ability to consider multiple travel costs in <code>cumulative_cutoff()</code>. We have already been using these features in our workflow at the Access to Opportunities Project, and we hope you find them useful as well.</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-barboza2021balancing" class="csl-entry">
+Barboza, Matheus H. C., Mariana S. Carneiro, Claudio Falavigna, Gregório Luz, and Romulo Orrico. 2021. <span>“Balancing Time: <span>Using</span> a New Accessibility Measure in <span>Rio</span> de <span>Janeiro</span>.”</span> <em>Journal of Transport Geography</em> 90 (January): 102924. <a href="https://doi.org/10.1016/j.jtrangeo.2020.102924">https://doi.org/10.1016/j.jtrangeo.2020.102924</a>.
+</div>
+<div id="ref-foster1984class" class="csl-entry">
+Foster, James, Joel Greer, and Erik Thorbecke. 1984. <span>“A <span>Class</span> of <span>Decomposable Poverty Measures</span>.”</span> <em>Econometrica</em> 52 (3): 761–66. <a href="https://doi.org/10.2307/1913475">https://doi.org/10.2307/1913475</a>.
+</div>
+<div id="ref-pereira2019future" class="csl-entry">
+Pereira, Rafael H. M. 2019. <span>“Future Accessibility Impacts of Transport Policy Scenarios: <span>Equity</span> and Sensitivity to Travel Time Thresholds for <span>Bus Rapid Transit</span> Expansion in <span>Rio</span> de <span>Janeiro</span>.”</span> <em>Journal of Transport Geography</em> 74 (January): 321–32. <a href="https://doi.org/10.1016/j.jtrangeo.2018.12.005">https://doi.org/10.1016/j.jtrangeo.2018.12.005</a>.
+</div>
+<div id="ref-soukhov2023introducing" class="csl-entry">
+Soukhov, Anastasia, Antonio Páez, Christopher D. Higgins, and Moataz Mohamed. 2023. <span>“Introducing Spatial Availability, a Singly-Constrained Measure of Competitive Accessibility.”</span> Edited by Jun Yang. <em>PLOS ONE</em> 18 (1): e0278468. <a href="https://doi.org/10.1371/journal.pone.0278468">https://doi.org/10.1371/journal.pone.0278468</a>.
+</div>
+</div>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>Please see the “Why use the Palma Ratio?” box in Chapter 6 of our book <a href="https://ipeagit.github.io/intro_access_book/6_cenarios_transporte.en.html#accessibility-inequality">Introduction to urban accessibility</a>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
