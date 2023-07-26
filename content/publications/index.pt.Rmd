@@ -13,7 +13,7 @@ description: "Minhas publicações"
 ## Livros
 
 - Rafael H. M. Pereira, Daniel Herszenhut. 2023. **Introdução à acessibilidade urbana: um guia prático em R**. \
-[[Website]](https://ipeagit.github.io/intro_access_book/)
+[[Website]](https://ipeagit.github.io/intro_access_book/pt)
 
 ## Artigos de revista
 
