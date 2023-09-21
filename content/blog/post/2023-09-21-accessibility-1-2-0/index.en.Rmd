@@ -1,0 +1,133 @@
+---
+title: accessibility 1.2.0
+author: Daniel Herszenhut
+date: '2023-09-21'
+slug: accessibility-1-2-0
+categories:
+  - accessibility
+  - package release
+tags:
+  - accessibility
+  - package release
+description: "`{accessibility}` provides several functions to calculate accessibility and inequality measures in R. This post overviews the recently released `{accessibility}` v1.2.0."
+bibliography: references.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+`{accessibility}` v1.2.0 has been released. This version includes two new
+functions to calculate inequality measures, `concentration_index()` and
+`theil_t()`. This post presents an overview of both functions. But first, let's
+create an accessibility dataset to use in this demonstration.
+
+```{r}
+library(accessibility)
+
+data_dir <- system.file("extdata", package = "accessibility")
+travel_matrix <- readRDS(file.path(data_dir, "travel_matrix.rds"))
+land_use_data <- readRDS(file.path(data_dir, "land_use_data.rds"))
+
+access <- cumulative_cutoff(
+  travel_matrix,
+  land_use_data,
+  opportunity = "jobs",
+  travel_cost = "travel_time",
+  cutoff = 30
+)
+head(access)
+```
+
+## Concentration Index
+
+`concentration_index()` calculates the Concentration Index (CI) of a given
+accessibility distribution. This measures estimates the extent to which
+accessibility inequalities are systematically associated with individuals'
+socioeconomic levels. CI values can theoretically vary between -1 and 1 (when
+all accessibility is concentrated in the most or in the least disadvantaged
+cell, respectively). Negative values indicate that inequalities favor the poor,
+while positive values indicate a pro-rich bias.
+
+This function includes an `income` parameter to indicate which variable from the
+sociodemographic dataset should be used to rank the population from the least to
+the most privileged groups. Any variable that can be used to describe one's
+socioeconomic status, such as education level, for example, can be passed to
+this argument, as long as it can be numerically ordered (in which higher values
+denote higher socioeconomic status).
+
+`concentration_index()` also includes a `type` parameter, used to indicate which
+Concentration Index to calculate. This parameter currently supports two values,
+`"standard"` and `"corrected"`, which respectively identify the standard
+relative CI and the corrected CI, proposed by @erreygers2009correcting.
+
+```{r}
+ci <- concentration_index(
+  access,
+  sociodemographic_data = land_use_data,
+  opportunity = "jobs",
+  population = "population",
+  income = "income_per_capita",
+  type = "corrected"
+)
+ci
+```
+
+## Theil T
+
+`theil_t()` calculates the Theil T Index of a given accessibility distribution.
+Values range from 0 (when all individuals have exactly the same accessibility
+levels) to the natural log of *n*, in which *n* is the number of individuals in
+the accessibility dataset.
+
+If the individuals can be classified into mutually exclusive and completely
+exhaustive groups (i.e. into groups that do not overlap and cover the entire
+population), the index can be decomposed into a between- and a within-groups
+inequality component. The function includes a `socioeconomic_groups` parameter
+to indicate which variable from the sociodemographic dataset should be used
+identify the socioeconomic groups used to calculate these components.
+
+Please note that the output of `theil_t()` varies based on the value of
+`socioeconomic_groups`. If `NULL` (the default), the between- and within-groups
+components are not calculated, and the function returns a data frame containing
+only the total aggregate inequality for the returned area. If
+`socioeconomic_groups` is not `NULL`, however, the function returns a list
+containing three dataframes: one summarizing the total inequality and the
+between- and within-groups components, one listing the contribution of each
+group to the between-groups component and another listing the contribution of
+each group to the within-groups component. Both behaviors are shown below.
+
+```{r}
+theil_without_groups <- theil_t(
+  access,
+  sociodemographic_data = land_use_data,
+  opportunity = "jobs",
+  population = "population"
+)
+theil_without_groups
+
+# some cells are classified as in the decile NA because their income per capita
+# is NaN, as they don't have any population. we filter these cells from our
+# accessibility data, otherwise the output would include NA values.
+# ps: note that subsetting the data like this doesn't affect the assumption that
+# groups are completely exhaustive, because cells with NA income decile don't
+# have any population.
+
+na_decile_ids <- land_use_data[is.na(land_use_data$income_decile), ]$id
+no_na_access <- access[! access$id %in% na_decile_ids, ]
+sociodem_data <- land_use_data[! land_use_data$id %in% na_decile_ids, ]
+
+theil_with_groups <- theil_t(
+  no_na_access,
+  sociodemographic_data = sociodem_data,
+  opportunity = "jobs",
+  population = "population",
+  socioeconomic_groups = "income_decile"
+)
+theil_with_groups
+```
+
+## References
